@@ -1,7 +1,7 @@
 # Cloud-Contact-Manager
 Here I have created a Web Application using HTML, CSS, Java, Spring Boot, MySQL from scratch where I am using MySQL for database purpose. The main objective of this project is to manage the details of Remainder, Mobiles, Phone Numbers, People, Address on one platform.
 
-Features
+#Features
 Easy Login & Registration with Server side validations.
 Save Contacts on Cloud securely with Spring Security.
 Encryption on saving passwords with BCrypt password encoder.
@@ -11,7 +11,7 @@ Custom Search bar to view contacts for every user.
 Easily view and delete the contacts.
 
 
-Dependencies
+#Dependencies
 spring-boot-starter-data-jpa
 spring-boot-starter-web
 spring-boot-starter-thymeleaf
