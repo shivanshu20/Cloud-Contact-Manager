@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="Layout(content)">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Custom css -->
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+
+	<title th:text="${title}">Base html</title>
+
+</head>
+
+<body>
+
+	<!-- Navbar  -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+		<a class="navbar-brand mx-3" th:href="@{/cloudcontactmanager/user/dashboard}">
+			Cloud Contact Manager
+		</a>
+
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse justify-content-end mx-5" id="navbarSupportedContent">
+
+			<ul class="navbar-nav text-uppercase">
+
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-white">
+						<span th:text="${user.name}"></span>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-white" th:href="@{/cloudcontactmanager/user/logout}">Logout</a>
+				</li>
+
+			</ul>
+
+		</div>
+	</nav>
+	<!--End of  Navbar  -->
+
+
+
+	<!-- sidebar starts-->
+
+	<div class="sidebar">
+
+		<span onclick="toggleSidebar()" class="crossBtn">&times;</span>
+		<a th:href="@{/cloudcontactmanager/user/dashboard}" class="nav-item">
+			<i class="fas fa-home fav-icons"></i>
+			Home
+		</a>
+		
+		<a th:href="@{/cloudcontactmanager/user/show-contacts/0}" class="nav-item">
+			<i class="fas fa-id-card-alt fav-icons"></i>
+			View Contacts
+		</a>
+		
+		<a th:href="@{/cloudcontactmanager/user/add-contact}" class="nav-item">
+			<i class="fas fa-pencil-alt fav-icons"></i>
+			Add Contact
+		</a>
+				
+		<a th:href="@{/cloudcontactmanager/user/profile}" class="nav-item">
+			<i class="fas fa-user-circle fav-icons"></i>
+			Profile
+		</a>
+		
+		<a href="#" class="nav-item">
+			<i class="fas fa-cogs fav-icons"></i>
+			Settings
+		</a>
+		
+		<a th:href="@{/cloudcontactmanager/user/logout}" class="nav-item">
+			<i class="fas fa-sign-out-alt fav-icons"></i>
+			Logout
+		</a>
+
+	</div>
+
+	<!-- sidebar ends -->
+
+
+	<!-- Main content -->
+	<div class="content">
+
+		<i onclick="toggleSidebar()" class="fas fa-bars m-3 bars"></i>
+
+		<div th:replace="${content}"></div>
+
+	</div>
+
+	<!-- content ends -->
+
+
+	<!-- javascript-->
+
+	<script
+		th:src="@{/js/script.js}"></script
+		
+		
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>

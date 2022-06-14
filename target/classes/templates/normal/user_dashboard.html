@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/user_base::Layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section>
+
+		<div class="container">
+			<div class="card">
+				<div class="card-body my-5 text-center">
+					<div class="text-center">
+						<img class="my-profile-picture"
+							th:src="@{'/images/phone-logo.png'}">
+
+					</div>
+					<h1 class="mt-3 text-secondary text-center">Start Adding Your Contacts</h1>
+				
+					<a 
+						th:href="@{/cloudcontactmanager/user/add-contact}" 
+						class="btn btn-primary btn-block mt-4 text-center text-uppercase">
+						Add New Contact
+					</a>
+				
+				</div>
+			</div>
+		</div>
+
+	</section>
+	</section>
+</body>
+
+</html>

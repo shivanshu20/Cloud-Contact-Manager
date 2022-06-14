@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section class="banner d-flex justify-content-center align-items-center">
+
+		<div class="text-center">
+			<h1>Cloud Contact Manager</h1>
+			<p>
+				Start collecting your contacts in very smarter way.
+				We provide very efficient way and smarter way of handling contacts.
+			</p>
+
+			<a th:href="@{signin}">
+				<button class="btn bg-primary btn-lg text-white center">
+					Get Started
+				</button>
+			</a>
+			
+		</div>
+
+
+	</section>
+</body>
+
+</html>

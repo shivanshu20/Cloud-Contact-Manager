@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+
+</head>
+
+<body>
+	<section>
+
+		<div class="container mt-2">
+			<div class="row">
+
+				<div class="col-md-6 offset-3">
+
+					<div class="signup-form mt-5">
+
+
+						<!-- alert message-->
+
+						<div th:if="${message}" th:classappend="${message.messageType}" class="alert" role="alert">
+							<p class="text-center" th:text="${message.messageContent}"> </p>
+						</div>
+
+						<!-- alert ends -->
+
+
+						<div class="text-center">
+							<img style="height:70px;" alt="" th:src="@{../images/add-user.png}">
+						</div>
+
+						<h1 class="text-center">Signup Here</h1>
+						<form th:action="@{register-user}" method="post" th:object="${user}">
+
+							<!-- name-field -->
+
+							<div class="form-group">
+
+								<label for="nameInput" class="mx-1">Your Name</label>
+								<input type="text" th:field="*{name}" name="name" class="form-control" id="name"
+									aria-describedby="nameHelp" placeholder="Enter name" required=true </div>
+
+								<!--name field ends -->
+
+								<!-- email-field -->
+
+								<div class="form-group mt-3">
+
+									<label for="emailInput" class="mx-1">Your Email</label>
+									<input type="email" th:field="*{email}" name="email" class="form-control" id="email"
+										aria-describedby="emailHelp" placeholder="Enter email" required=true />
+
+								</div>
+								<!--email field ends -->
+
+								<!-- password-field -->
+
+								<div class="form-group mt-3">
+
+									<label for="passwordInput" class="mx-1">Your Password</label>
+									<input type="password" th:field="*{password}" class="form-control" id="password"
+										name="password" aria-describedby="passwordHelp" placeholder="Enter password"
+										required=true />
+
+								</div>
+								<!--password field ends -->
+
+								<!-- confirm password-field
+
+							<div class="form-group mt-3">
+
+								<label for="passwordInput" class="mx-1">Your Confirm Password</label>
+								<input type="confirmpassword" class="form-control" id="confirmpassword"
+									aria-describedby="passwordHelp" placeholder="Enter password" required=true />
+
+							</div>
+							confirm password field ends -->
+
+
+								<div class="container mt-3 text-center">
+
+									<button type="submit" class="btn bg-primary text-white mx-1">
+										Submit
+									</button>
+
+									<button type="reset" class="btn bg-warning text-white">
+										Reset
+									</button>
+
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
