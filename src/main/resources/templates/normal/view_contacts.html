@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/user_base::Layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section class="justify-content-center">
+
+
+		<!-- message -->
+
+		<div class="container">
+
+			<button class="btn btn-primary view-contacts">
+				<a th:href="@{/cloudcontactmanager/user/export-contacts}" class="text-white"
+					style="text-decoration: none;">
+					Export to CSV
+				</a>
+			</button>
+
+		</div>
+
+		<!--message box -->
+
+		<div class="card mt-2">
+
+			<div class="card-body">
+
+
+				<h1 class="text-center">Your contacts</h1>
+
+				<div class="search-container my-4">
+					<input onkeyup="search()" id="search-input" type="text" class="form-control"
+						placeholder="Search your contacts" style="width: 300px;">
+					<div class="search-result">
+
+						<!--search result -->
+					</div>
+				</div>
+
+				<table class="table table-striped table-hover mt-3">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email address</th>
+							<th scope="col">Phone No</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+
+
+						<tr th:each="contact : ${allContacts}">
+
+							<td th:text="${'C' + contact.cId}"></td>
+							<td>
+
+								<img class="profile-picture" th:src="@{'/images/' + ${contact.image}}"
+									alt="profile-picture" />
+
+								<span th:text="${contact.name}" class="mx-1"></span>
+							</td>
+							<td th:text="${contact.email}"></td>
+							<td th:text="${contact.phoneNo}"></td>
+							<td>
+
+								<a th:href="@{'/cloudcontactmanager/user/update-contact/' + ${contact.cId}}"
+									class="btn btn-warning btn-sm">
+									<i class="fa-solid fa-pencil view-contacts-buttons" style="color: white"></i>
+								</a>
+
+								<a th:onclick="|deleteContact(${contact.cId})|"
+									class="btn btn-danger btn-sm view-contacts-buttons">
+									<i class="fa-solid fa-trash" style="color: white"></i>
+								</a>
+
+
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				<!-- pagination starts -->
+
+				<nav aria-label="Page navigation example">
+
+					<ul th:if="${totalPages != 0}" class="pagination">
+
+						<li th:if="${currentPage != 0}" class="page-item">
+
+							<a class="page-link" th:href="@{${currentPage-1}}">Previous</a>
+
+						</li>
+
+						<li th:each="i : ${#numbers.sequence(1, totalPages)}"
+							th:classappend="${currentPage == i-1 ? 'active' : ''}" class="page-item">
+
+							<a class="page-link" th:href="@{${i-1}}">
+								<span th:text="${i-1}"></span>
+							</a>
+						</li>
+
+						<li th:if="${currentPage+1 != totalPages}" class="page-item">
+							<a class="page-link" th:href="@{${currentPage+1}}">Next</a>
+						</li>
+					</ul>
+
+				</nav>
+				<!-- pagination ends -->
+
+			</div>
+
+		</div>
+
+	</section>
+</body>
+
+</html>

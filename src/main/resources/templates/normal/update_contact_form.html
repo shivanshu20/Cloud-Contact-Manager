@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/user_base::Layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section>
+
+
+		<div class="card">
+			<div class="card-body">
+				<h1 class="text-center">Update your contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+
+							<form action="#" th:object="${contact}" enctype="multipart/form-data" method="post"
+								th:action="@{/cloudcontactmanager/user/process-contact-update}" class="mt-2">
+
+								
+								<input type="hidden" th:value="${contact.cId}" name="cId" id="cId">
+								
+								
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-user-alt contact-icons"></i>
+										</div>
+
+									</div>
+
+									<input 
+										th:value="${contact.name}"
+										class="form-control" type="text" id="firstName" name="name"
+										placeholder="Enter Name">
+								</div>
+
+								<!-- Nick name -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fas fa-plus contact-icons"></i>
+										</div>
+
+									</div>
+
+									<input 
+										th:value="${contact.nickName}"
+										class="form-control" type="text" id="nickName" name="nickName"
+										placeholder="Enter Nick name">
+								</div>
+
+								<!-- email -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text contact-phone-icon">
+											@
+										</div>
+
+									</div>
+
+									<input
+										th:value="${contact.email}" 
+										class="form-control" type="email" id="email" name="email"
+										placeholder="Enter Email">
+								</div>
+
+								<!-- Phone -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-phone contact-icons"></i>
+										</div>
+
+									</div>
+
+									<input
+										th:value="${contact.phoneNo}" 
+										class="form-control" type="number" id="phoneNo" name="phoneNo"
+										placeholder="Enter Phone no">
+								</div>
+
+								<!-- Work Field -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-briefcase contact-icons"></i>
+										</div>
+
+									</div>
+
+									<input 
+										th:value="${contact.work}"
+										class="form-control" type="text" id="work" name="work"
+										placeholder="Enter Work">
+								</div>
+
+								<div class="custom-file mt-3">
+
+									<input type="file" id="profileImage" name="profileImage">
+								</div>
+
+								<div class="container text-center contact-form-buttons">
+									<button type="submit" class="btn btn-outline-primary">Update Contact</button>
+									<button type="reset" class="btn btn-outline-warning">Reset</button>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
