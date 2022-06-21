@@ -48,7 +48,7 @@ public class ContactServiceImpl implements ContactService {
 
 		
 		try {
-			//encrypting the phoneNo before storing it into the database
+			/* encrypting the phoneNo before storing it into the database */
 			
 			String secretKey = encryptDecrypt.generateRandomString();
 			String encryptedPhoneNo = encryptDecrypt.encrypt(contact.getPhoneNo(), secretKey);
